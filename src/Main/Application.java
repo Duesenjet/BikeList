@@ -23,6 +23,7 @@ public class Application {
 
             System.out.print("> ");
             commandInput = scanner.nextLine();
+            commandInput = commandInput.trim();
 
             if (command.isCommand(commandInput)){
                 command.executeCommand(commandInput);

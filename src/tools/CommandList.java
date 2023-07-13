@@ -9,8 +9,8 @@ public class CommandList {
     static {                                                            //List for all commands
         commandList.add("help");    //shows all commands
         commandList.add("ls");      //prints the bikelist
-
-
+        commandList.add("new bike");    //creates a new Bike
+        commandList.add("rm bike");
     }
     private BikeList bikeList = new BikeList();
 
@@ -35,6 +35,9 @@ public class CommandList {
                 break;
             case "ls":
                 bikeList.printBikeList();
+                break;
+            case "new bike":
+                bikeList.createNewBike();
         }
 
     }
