@@ -6,6 +6,7 @@ import java.util.*;
 public class CommandList {
 
     private static List<String> commandList = new ArrayList();
+
     static {                                                            //List for all commands
         commandList.add("help");    //shows all commands
         commandList.add("ls");      //prints the bikelist
@@ -15,26 +16,27 @@ public class CommandList {
 
 
     }
+
     private BikeList bikeList = new BikeList();
 
-    public CommandList(){
+    public CommandList() {
 
     }
 
-    public boolean isCommand(String command){
+    public boolean isCommand(String command) {
         if (!command.equals("shutdown")) {
             for (int i = 0; i < commandList.size(); i++) {
                 if (command.equals(commandList.get(i)))
                     return true;
             }
             return false;
-        }else
+        } else
             return false;
     }
 
-    public void executeCommand(String command){
+    public void executeCommand(String command) {
 
-        switch (command){
+        switch (command) {
             case "help":
                 printCommandList();
                 break;
@@ -51,13 +53,13 @@ public class CommandList {
 
     }
 
-    public List getCommandList(){
-       return commandList;
+    public List getCommandList() {
+        return commandList;
     }
 
-    public void printCommandList(){
+    public void printCommandList() {
         String text = "";
-        for (int i = 0; i < commandList.size(); i++){
+        for (int i = 0; i < commandList.size(); i++) {
             text += commandList.get(i) + "\n";
         }
         System.out.print(text);

@@ -13,8 +13,6 @@ public class Application {
     public static List<String> commandList = command.getCommandList();
 
 
-
-
     public static void main(String[] args) {
         String commandInput = "";
         String header = "Bikelist Maker \nType in <help> for all commands";
@@ -25,13 +23,13 @@ public class Application {
             commandInput = scanner.nextLine();
             commandInput = commandInput.trim();
 
-            if (command.isCommand(commandInput)){
+            if (command.isCommand(commandInput)) {
                 command.executeCommand(commandInput);
 
             }
 
 
-        }while (!commandInput.equals("shutdown"));
+        } while (!commandInput.equals("shutdown"));
 
     }
 }

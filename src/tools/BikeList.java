@@ -7,25 +7,27 @@ public class BikeList {
     Scanner scanner = new Scanner(System.in);
     Bike bike = new Bike();
     private static List<Bike> bikeList = new ArrayList<>();
+
     static {
         bikeList.add(new Bike("KTM", "690 SMCR", 70, 2020));
         bikeList.add(new Bike("BMW", "M 1000 RR", 214, 2023));
         bikeList.add(new Bike("KTM", "EXC 300", 63, 2021));
     }
 
-    public BikeList(){}
+    public BikeList() {
+    }
 
-    public void addBikeToList(Bike bike){
+    public void addBikeToList(Bike bike) {
         bikeList.add(bike);
     }
 
-    public void removeBikeFromList(){
+    public void removeBikeFromList() {
         boolean checkRemoved = false;
         System.out.print("Modell   ----> ");
         String bikeName = scanner.nextLine();
         bikeName = bikeName.trim();
-        for (int i = 0; i < bikeList.size(); i++){
-            if (bikeName.equals(bikeList.get(i).getBikeName())){
+        for (int i = 0; i < bikeList.size(); i++) {
+            if (bikeName.equals(bikeList.get(i).getBikeName())) {
                 bikeList.remove(i);
                 bike.lowerBikeCounter();
                 checkRemoved = true;
@@ -38,7 +40,7 @@ public class BikeList {
             System.out.println("Bike not found!");
     }
 
-    public void createNewBike(){
+    public void createNewBike() {
 
         String brand;
         String bikeName;
@@ -53,23 +55,23 @@ public class BikeList {
         System.out.print("Bikename: ");
         bikeName = scanner.nextLine();
 
-        while (check1){
+        while (check1) {
             try {
                 System.out.print("Horsepower: ");
                 String input = scanner.nextLine();
                 horsepower = Integer.parseInt(input);
                 check1 = false;
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("wrong format!");
             }
         }
-        while (check2){
+        while (check2) {
             try {
                 System.out.print("Releaseyear: ");
                 String input = scanner.nextLine();
                 releaseYear = Integer.parseInt(input);
                 check2 = false;
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("wrong format!");
             }
         }
@@ -78,9 +80,9 @@ public class BikeList {
     }
 
 
-    public void printBikeList(){
+    public void printBikeList() {
         String text = "";
-        for (int i = 0; i < bikeList.size(); i++){
+        for (int i = 0; i < bikeList.size(); i++) {
             text += "Brand: " + bikeList.get(i).getBrand() + ", Modell: " + bikeList.get(i).getBikeName() + ", Leistung: " + bikeList.get(i).getHorsePower() + ", Erscheinungsjahr: " + bikeList.get(i).getReleaseYear() + "\n";
         }
         text += "bikes: " + bike.getNumberOfBikes() + "\n";
