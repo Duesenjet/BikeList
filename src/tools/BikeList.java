@@ -5,6 +5,7 @@ import java.util.*;
 public class BikeList {
 
     Scanner scanner = new Scanner(System.in);
+    Bike bike = new Bike();
     private static List<Bike> bikeList = new ArrayList<>();
     static {
         bikeList.add(new Bike("KTM", "690 SMCR", 70, 2020));
@@ -12,18 +13,33 @@ public class BikeList {
         bikeList.add(new Bike("KTM", "EXC 300", 63, 2021));
     }
 
-    public BikeList(){
-
-    }
+    public BikeList(){}
 
     public void addBikeToList(Bike bike){
         bikeList.add(bike);
     }
-    public void removeBikeFromList(){}
 
+    public void removeBikeFromList(){
+        boolean checkRemoved = false;
+        System.out.print("Modell   ----> ");
+        String bikeName = scanner.nextLine();
+        bikeName = bikeName.trim();
+        for (int i = 0; i < bikeList.size(); i++){
+            if (bikeName.equals(bikeList.get(i).getBikeName())){
+                bikeList.remove(i);
+                bike.lowerBikeCounter();
+                checkRemoved = true;
+                break;
+            }
+        }
+        if (checkRemoved)
+            System.out.println("Bike removed!");
+        else
+            System.out.println("Bike not found!");
+    }
 
     public void createNewBike(){
-        System.out.print("creating new Bike \n");
+
         String brand;
         String bikeName;
         int horsepower = 0;
@@ -31,6 +47,7 @@ public class BikeList {
         boolean check1 = true;
         boolean check2 = true;
 
+        System.out.print("creating new Bike \n");
         System.out.print("Brand: ");
         brand = scanner.nextLine();
         System.out.print("Bikename: ");
@@ -58,10 +75,6 @@ public class BikeList {
         }
         System.out.println("New bike added!");
         addBikeToList(new Bike(brand, bikeName, horsepower, releaseYear));
-
-
-
-
     }
 
 
@@ -70,8 +83,8 @@ public class BikeList {
         for (int i = 0; i < bikeList.size(); i++){
             text += "Brand: " + bikeList.get(i).getBrand() + ", Modell: " + bikeList.get(i).getBikeName() + ", Leistung: " + bikeList.get(i).getHorsePower() + ", Erscheinungsjahr: " + bikeList.get(i).getReleaseYear() + "\n";
         }
+        text += "bikes: " + bike.getNumberOfBikes() + "\n";
         System.out.print(text);
     }
-
 
 }

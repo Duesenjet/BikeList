@@ -6,6 +6,7 @@ public class Bike {
     private String brand;
     private int horsePower;
     private int releaseYear;
+    private static int numberOfBikes = 0;
 
     public Bike(){
 
@@ -15,6 +16,7 @@ public class Bike {
         this.brand = brand;
         this.horsePower = horsePower;
         this.releaseYear = releaseYear;
+        numberOfBikes++;
     }
 
     public String getBrand() {
@@ -31,5 +33,12 @@ public class Bike {
 
     public String getBikeName() {
         return bikeName;
+    }
+
+    public int getNumberOfBikes() {
+        return numberOfBikes;
+    }
+    public void lowerBikeCounter(){
+        numberOfBikes--;
     }
 }
