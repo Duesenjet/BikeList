@@ -23,21 +23,24 @@ public class BikeList {
 
     public void removeBikeFromList() {
         boolean checkRemoved = false;
-        System.out.print("Modell   ----> ");
+        System.out.print("Modell, or stop   ----> ");
         String bikeName = scanner.nextLine();
         bikeName = bikeName.trim();
-        for (int i = 0; i < bikeList.size(); i++) {
-            if (bikeName.equals(bikeList.get(i).getBikeName())) {
-                bikeList.remove(i);
-                bike.lowerBikeCounter();
-                checkRemoved = true;
-                break;
+        if (!bikeName.equals("stop")) {
+            for (int i = 0; i < bikeList.size(); i++) {
+                if (bikeName.equals(bikeList.get(i).getBikeName())) {
+                    bikeList.remove(i);
+                    bike.lowerBikeCounter();
+                    checkRemoved = true;
+                    break;
+                }
             }
-        }
-        if (checkRemoved)
-            System.out.println("Bike removed!");
-        else
-            System.out.println("Bike not found!");
+            if (checkRemoved)
+                System.out.println("Bike removed!");
+            else
+                System.out.println("Bike not found!");
+        }else
+            System.out.println("canceled!");
     }
 
     public void createNewBike() {

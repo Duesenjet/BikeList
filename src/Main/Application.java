@@ -15,7 +15,7 @@ public class Application {
 
     public static void main(String[] args) {
         String commandInput = "";
-        String header = "Bikelist Maker \nType in <help> for all commands";
+        String header = "Bike- and Carlist Maker \nType in <help> for all commands";
         System.out.println(header);
         do {
 
@@ -26,7 +26,8 @@ public class Application {
             if (command.isCommand(commandInput)) {
                 command.executeCommand(commandInput);
 
-            }
+            }else
+                System.out.println("command not found! type 'help' for all commands");
 
 
         } while (!commandInput.equals("shutdown"));
