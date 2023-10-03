@@ -1,5 +1,3 @@
-package Main;
-
 import tools.CommandList;
 
 import java.util.*;
@@ -12,7 +10,7 @@ public class Application {
     public static CommandList command = new CommandList();
     public static List<String> commandList = command.getCommandList();
 
-    public void sepl(){System.out.println("-".repeat(80));}
+    public static void sepl(){System.out.println("-".repeat(80));}
 
 
     public static void main(String[] args) {
