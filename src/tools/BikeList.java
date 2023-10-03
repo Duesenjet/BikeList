@@ -1,10 +1,13 @@
 package tools;
 
+import Main.Application;
+
 import java.util.*;
 
 public class BikeList {
 
     Scanner scanner = new Scanner(System.in);
+    Application application = new Application();
     Bike bike = new Bike();
     private static List<Bike> bikeList = new ArrayList<>();
 
@@ -89,7 +92,11 @@ public class BikeList {
             text += "Brand: " + bikeList.get(i).getBrand() + ", Modell: " + bikeList.get(i).getBikeName() + ", Leistung: " + bikeList.get(i).getHorsePower() + ", Erscheinungsjahr: " + bikeList.get(i).getReleaseYear() + "\n";
         }
         text += "bikes: " + bike.getNumberOfBikes() + "\n";
+        application.sepl();
+        System.out.println("    Bikes");
+        application.sepl();
         System.out.print(text);
+
     }
 
 }

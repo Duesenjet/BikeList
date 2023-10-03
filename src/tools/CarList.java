@@ -1,9 +1,12 @@
 package tools;
 
+import Main.Application;
+
 import java.util.*;
 
 public class CarList {
     Scanner scanner = new Scanner(System.in);
+    Application application = new Application();
     Car car = new Car();
     private static List<Car> carList = new ArrayList<>();
 
@@ -90,7 +93,11 @@ public class CarList {
                     carList.get(i).getReleaseYear() + "\n";
         }
         text += "cars: " + car.getNumberOfCars() + "\n";
+        application.sepl();
+        System.out.println("    Cars");
+        application.sepl();
         System.out.print(text);
+        application.sepl();
     }
 
 
